@@ -1,0 +1,7 @@
+digits:
+  build: .
+  command: ./digits-devserver
+  volumes:
+    - .:/digits
+  ports:
+    - "5000:5000"
