@@ -1,7 +1,5 @@
-/Dockerfile~
-/digits/.ipynb_checkpoints/Untitled-checkpoint.ipynb
-/.ipynb_checkpoints/Untitled1-checkpoint.ipynb
-/.ipynb_checkpoints/Untitled-checkpoint.ipynb
+*~
+*ipynb
 # Ignore these file types
 *.cfg
 *.log
