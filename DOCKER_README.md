@@ -1,4 +1,4 @@
-#Caffe
+# DIGITS DOCKER IMAGE
 
 This is an introduction to run caffe and digits inside a docker image.
 
@@ -25,16 +25,37 @@ $ sudo apt-get install nvidia-yourversion-uvm -y
 
 ## DIGITS
 
-Clone this repo then generate a docker file with your nvidia version
+Clone this repo.
+
+Then checkout your nvidia version by typing
 ```bash
-$ sed "s/YOUR_VERSION/nv_version/g" Dockerfile_example.txt > Dockerfile
+$ nvidia-smi
+```
+Generate a docker file with your nvidia version. **you should remplace my_version by your own nvidia version, for example, my_version = 346.72**
+
+```bash
+$ sed "s/VERSION/my_version/g" Dockerfile_example.txt > Dockerfile
 ```
 
-Then constrct your docker image by:
+Then build your docker image by:
 
 ```bash
 $ docker-compose build
 ```
+## Work with docker caffe
 
-docker run -d --privileged=true -p 8888:8888 -t -i -v ~/Workspace/notebook:/notebook digits_notebook bash
-docker exec -i -t your_id bash
+In order to work with the docker image, you should run it in the background, and run your functions by calling **docker exec**.
+
+First, run a docker image in background. 
+* **digits_notebook** is the id of our image (to view all the docker images on your machine, type **docker images**);.
+* **/bin/bash** is the command to run on the machine.
+* **--privileged=true**. give the image access to your devices, typecally, your GPU
+
+```bash
+$ docker run -d --name=c_id --privileged=true -p 8888:8888 -t -i -v home/ubuntu/Workspace/notebook:/notebook digits_notebook bash
+```
+
+To access into the docker image
+```bash
+$ docker exec -i -t c_id bash
+```
