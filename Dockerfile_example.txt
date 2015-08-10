@@ -1,4 +1,4 @@
-FROM liyongsea/caffe-base
+FROM liyongsea/caffe-base2
 RUN apt-get update && apt-get install -y graphviz
 RUN mkdir -p /opt/caffe/build/tools
 RUN mkdir /digits

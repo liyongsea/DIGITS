@@ -16,6 +16,6 @@ RUN cd /opt && mkdir nvidia_installers && cd nvidia_installers && wget http://us
 RUN cd /tmp && wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh && chmod +x Anaconda-2.3.0-Linux-x86_64.sh && bash Anaconda-2.3.0-Linux-x86_64.sh -b
 
 ENV PATH="/root/anaconda/bin:$PATH"
-RUN conda update conda && conda update ipython ipython-notebook ipython-qtconsole -y && rm /tmp/Anaconda-2.3.0-Linux-x86_64.sh && pip install protobuf
+RUN conda update conda && conda update ipython ipython-notebook ipython-qtconsole -y && rm /tmp/Anaconda-2.3.0-Linux-x86_64.sh && pip install protobuf && pip install lmdb
 
 ADD . /digits
